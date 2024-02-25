@@ -244,10 +244,19 @@ function redrawTable(data) {
         trTable.setAttribute("onclick", "selectRow(this)");
         trTable.style.height = localTrValuesHeight[trTable.dataset.numberRow];
 
-        trTable.setAttribute("draggable", true);
+        trTable.setAttribute("draggable", false);
         trTable.setAttribute("ondragstart", "start();");
         trTable.setAttribute("ondragover", "dragover();");
         trTable.setAttribute("ondragend", "dragend();");
+
+        trTable.addEventListener("mousedown", function () {
+            if (event.target.tagName == "TD")
+                trTable.setAttribute("draggable", true);
+        })
+
+        trTable.addEventListener("mouseup", function () {
+            trTable.setAttribute("draggable", false);
+        })
 
         for (let j = 0; j < 5; j++) {
             let tdTable = document.createElement("td");
@@ -445,6 +454,7 @@ function createResizableTable(table) {
 function start() {
     tableRow = event.target;
 }
+
 //Функция системы еремещения строки
 function dragover() {
 
@@ -489,15 +499,13 @@ function dragend() {
     getNum(tableRow);
 }
 
+
 //Функция отрисовки элементов для системы ресайза колонок
 function createResizableColumn(col, resizerColumn) {
     let x = 0;
     let w = 0;
 
     let mouseDownHandler = function (e) {
-
-        col.setAttribute("draggable", false);
-
         x = e.clientX;
 
         let stylesColumn = window.getComputedStyle(col);
@@ -525,7 +533,7 @@ function createResizableColumn(col, resizerColumn) {
         resizerColumn.classList.remove("resizingColumn");
         document.removeEventListener("mousemove", mouseMoveHandler);
         document.removeEventListener("mouseup", mouseUpHandler);
-        resizerSelectors()
+        resizerSelectors();
     };
 
     resizerColumn.addEventListener("mousedown", mouseDownHandler);
@@ -537,9 +545,6 @@ function createResizableRows(row, resizerRow) {
     let h = 0;
 
     let mouseDownHandlerRow = function (e) {
-
-        row.setAttribute("draggable", false);
-
         y = e.clientY;
 
         let stylesRow = window.getComputedStyle(row);
@@ -574,8 +579,6 @@ function createResizableRows(row, resizerRow) {
         document.removeEventListener("mousemove", mouseMoveHandlerRow);
         document.removeEventListener("mouseup", mouseUpHandlerRow);
         resizerSelectors();
-
-        row.setAttribute("draggable", true);
     };
 
     resizerRow.addEventListener("mousedown", mouseDownHandlerRow);
