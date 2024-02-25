@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Test project</h1>
+
+        <div class="buttons-container">
+            <p class="button-send button">send request</p>
+            <p class="button-clear button">clear table</p>
+            <p class="button-del button">delete row</p>
+        </div>
+
+        <p class="stub">no data available</p>
+
+        <table id="table" class="table">
+            <thead>
+                <tr>
+                    <th data-id="0">name</th>
+                    <th data-id="1">birth year</th>
+                    <th data-id="2">gender</th>
+                    <th data-id="3">height</th>
+                    <th data-id="4">mass</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <div class="page-selector">
+            <div class="select select-back">‹</div>
+            <div class="page-buttons-container"></div>
+            <div class="select select-next">›</div>
+        </div>
+    </div>
+
+    <div id="preloader">
+        <img src="images/preloader.gif" alt="preloader">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+body {
+    background: #0a0a0a;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-transform: uppercase;
+    margin: 50px 0 50px 0;
+    padding: 0;
+}
+
+.container {
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 5% 50px 5%;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.button {
+    background: transparent;
+    padding: 10px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.button-del {
+    display: none;
+}
+
+.button-clear {
+    display: none;
+    margin-left: 15px;
+}
+
+.button:hover {
+    background: royalblue;
+    transition: .3s ease-in-out;
+}
+
+table::-webkit-scrollbar {
+    width: 9px;
+}
+
+table::-webkit-scrollbar-track {
+    background: #252525;
+}
+
+table::-webkit-scrollbar-thumb {
+    background-color: royalblue;
+}
+
+.table {
+    border-collapse: collapse;
+    height: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.table tbody {
+    border-left: 3px solid rgb(68, 68, 68);
+}
+
+.table thead {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background: royalblue;
+    border-left: 3px solid rgb(68, 68, 68);
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+}
+
+.table th {
+    position: relative;
+    cursor: s-resize;
+}
+
+.table tbody tr:hover {
+    cursor: pointer;
+    background: #303030 !important;
+    transition: .3s ease-in-out background;
+}
+
+.resizerColumn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    cursor: col-resize;
+    user-select: none;
+    background: rgb(68, 68, 68);
+}
+
+.resizerColumn:hover,
+.resizingColumn {
+    background: orange;
+    z-index: 1;
+    transition: .1s ease-in-out;
+}
+
+.table tr {
+    position: relative !important;
+}
+
+.resizerRow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    cursor: row-resize;
+    user-select: none;
+    background: rgb(68, 68, 68);
+}
+
+.resizerRow:hover,
+.resizingRow {
+    background: orange;
+    z-index: 1;
+    transition: .1s ease-in-out;
+}
+
+.page-selector {
+    width: 100%;
+    margin: 25px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: none;
+}
+
+.select {
+    background: royalblue;
+    width: 35px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.select:hover {
+    filter: brightness(125%);
+}
+
+.select-back {
+    display: none;
+}
+
+.page-buttons-container {
+    gap: 5px;
+    flex-direction: row;
+    display: flex;
+}
+
+.button-select-page {
+    width: 33px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.button-select-page:hover {
+    background: royalblue !important;
+}
+
+.stub {
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-size: 70px;
+}
+
+#preloader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(20px);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#preloader img {
+    width: 50px;
+}
+
+#preloader.preloader-hidden {
+    display: none;
+}
